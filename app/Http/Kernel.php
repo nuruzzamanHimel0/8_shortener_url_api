@@ -21,6 +21,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         //https://github.com/spatie/laravel-cors
         \Spatie\Cors\Cors::class,
+        //custome middleware
+        \App\Http\Middleware\ForceJsonResponse::class,
     ];
 
     /**
@@ -62,6 +64,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        //custome middleware
+        'json.response' => \App\Http\Middleware\ForceJsonResponse::class,
     ];
 
     /**

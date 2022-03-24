@@ -8,7 +8,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 });
 
-Route::group(['prefix'=>'/','namespace'=>"Fontend\Api",'middleware'=>['auth:api','throttle:80,1']], function(){
+Route::group(['prefix'=>'/','namespace'=>"Fontend\Api",'middleware'=>['auth:api','throttle:80,1','json.response']], function(){
     Route::post('access-token', 'Auth\AuthController@accessToken');
     Route::post('/get-link/{userid}', 'ShortnerUrlController@index');
     Route::post('/generate-shorten-link', 'ShortnerUrlController@store');
@@ -19,7 +19,7 @@ Route::group(['prefix'=>'/','namespace'=>"Fontend\Api",'middleware'=>['auth:api'
     Route::post('logout', 'Auth\AuthController@logout');
 });
 
-Route::group(['prefix'=>'/','namespace'=>"Fontend\Api",'middleware'=>['throttle:80,1']], function(){
+Route::group(['prefix'=>'/','namespace'=>"Fontend\Api",'middleware'=>['throttle:80,1','json.response']], function(){
 
     //auth
     Route::post('registration', 'Auth\AuthController@registration');
