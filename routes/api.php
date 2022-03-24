@@ -15,6 +15,8 @@ Route::group(['prefix'=>'/','namespace'=>"Fontend\Api",'middleware'=>['auth:api'
     Route::put('/update-link/{id}/user/{userid}', 'ShortnerUrlController@update');
     Route::post('/show-link/{id}/user/{userid}', 'ShortnerUrlController@show');
     Route::delete('/delete-link/{id}/user/{userid}', 'ShortnerUrlController@destroy');
+    //logout
+    Route::post('logout', 'Auth\AuthController@logout');
 });
 
 Route::group(['prefix'=>'/','namespace'=>"Fontend\Api",'middleware'=>['throttle:80,1']], function(){
