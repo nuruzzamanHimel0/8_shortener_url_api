@@ -1,0 +1,208 @@
+{
+	"id": "287073d6-828b-594b-39ee-b23557bf8c04",
+	"name": "SHORTNER URL",
+	"description": "",
+	"order": [
+		"c7050273-d809-3fea-a868-07b6e728c939",
+		"c33af544-f58a-4570-9316-cf42d762666c",
+		"e9aee521-4a22-f32a-844b-0b7ebecf90e8",
+		"cf4b6f5f-27c6-03dc-e7a9-c0bafaa7f062",
+		"5e349137-a330-44dc-a40d-c154dd6096f1"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1648102663398,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "5e349137-a330-44dc-a40d-c154dd6096f1",
+			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{shorturlauth}}\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "{{shorturlauth}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost/8_shortener_url_api/public/api/show-link/8/user/2",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "287073d6-828b-594b-39ee-b23557bf8c04",
+			"data": null,
+			"dataMode": "params",
+			"name": "show link",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1648138274184,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "c33af544-f58a-4570-9316-cf42d762666c",
+			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{shorturlauth}}\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "{{shorturlauth}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost/8_shortener_url_api/public/api/show-link/8/user/1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1648126223729,
+			"name": "show single link",
+			"description": "",
+			"collectionId": "287073d6-828b-594b-39ee-b23557bf8c04",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "c7050273-d809-3fea-a868-07b6e728c939",
+			"headers": "Authorization: {{shorturlauth}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{shorturlauth}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost/8_shortener_url_api/public/api/get-link/1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1648126445761,
+			"name": "gat all url",
+			"description": "",
+			"collectionId": "287073d6-828b-594b-39ee-b23557bf8c04",
+			"responses": []
+		},
+		{
+			"id": "cf4b6f5f-27c6-03dc-e7a9-c0bafaa7f062",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost/8_shortener_url_api/public/api/registration",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "287073d6-828b-594b-39ee-b23557bf8c04",
+			"data": null,
+			"dataMode": "params",
+			"name": "Registration",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1648131749987,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "e9aee521-4a22-f32a-844b-0b7ebecf90e8",
+			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{shorturlauth}}\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "{{shorturlauth}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost/8_shortener_url_api/public/api/logout",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "287073d6-828b-594b-39ee-b23557bf8c04",
+			"data": null,
+			"dataMode": "params",
+			"name": "logout",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1648130838515,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

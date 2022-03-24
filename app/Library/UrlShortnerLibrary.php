@@ -25,37 +25,32 @@ class UrlShortnerLibrary{
                     //already blocked
                    return $this->alreadyBlockedCheck($visiteTime,$code,$clientIp,$fetchUrl,$expireAt);
 
-                }else{
-                    // ekhn o block hoy nai, check korbe hit ta ek i time y eseci kina
-                    $recordTimeSTT = strtotime($getCache['recordTime']);
-                    $visiteTimeSTT = strtotime($visiteTime);
-                    if($recordTimeSTT == $visiteTimeSTT){
-                        // cache ase and hit time same
-                        if((int)$getCache['count'] === (int)$fetchUrl->visiteParMin ){
-                            //r visite korte parbe na, block time set kora hbe
-                            $this->isBlockedUrl($getCache,$code,$clientIp,$expireAt,$fetchUrl);
-                        }else{
-                            // ekhn o visite kore parbe
-                            $getCache['count'] = $getCache['count'] + 1;
-                            Cache::put($code.$clientIp,$getCache, $expireAt);
-                            return redirect($fetchUrl->fulllink);
-                        }
-                    }else{
-                        // url cache ase but hit time same na
-                        Cache::forget($code.$clientIp);
-                        $this->resetCache($code,$clientIp,$expireAt,$visiteTime);
-                        return redirect($fetchUrl->fulllink);
-                    }
                 }
-            }else{
-                // new cache create
-                $this->resetCache($code,$clientIp,$expireAt,$visiteTime);
-                return redirect($fetchUrl->fulllink);
+                 // ekhn o block hoy nai, check korbe hit ta ek i time y eseci kina
+                 $recordTimeSTT = strtotime($getCache['recordTime']);
+                 $visiteTimeSTT = strtotime($visiteTime);
+                 if($recordTimeSTT == $visiteTimeSTT){
+                    // cache ase and hit time same
+                    if((int)$getCache['count'] === (int)$fetchUrl->visiteParMin ){
+                        //r visite korte parbe na, block time set kora hbe
+                        $this->isBlockedUrl($getCache,$code,$clientIp,$expireAt,$fetchUrl);
+                    }
+                    // ekhn o visite kore parbe
+                    $getCache['count'] = $getCache['count'] + 1;
+                    Cache::put($code.$clientIp,$getCache, $expireAt);
+                    return redirect($fetchUrl->fulllink);
+                 }
+                 // url cache ase but hit time same na
+                 Cache::forget($code.$clientIp);
+                 $this->resetCache($code,$clientIp,$expireAt,$visiteTime);
+                 return redirect($fetchUrl->fulllink);
             }
-        }else{
-            //invalide url
-            throw new InvalideUrlException();
+             // new cache create
+             $this->resetCache($code,$clientIp,$expireAt,$visiteTime);
+             return redirect($fetchUrl->fulllink);
         }
+        //invalide url
+        throw new InvalideUrlException();
     }
 
     public function resetCache($code,$clientIp,$expireAt,$visiteTime){

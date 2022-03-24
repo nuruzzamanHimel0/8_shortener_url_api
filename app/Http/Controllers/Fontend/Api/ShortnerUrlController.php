@@ -33,16 +33,13 @@ class ShortnerUrlController extends Controller
 
     public function store(Request $request){
 
-
-        // return $request->all();
-
         $request->validate([
             'fulllink' => 'required|url',
             'visiteParMin' => 'required',
             'ipBlockTime' => 'required',
          ]);
          $input = array();
-         $loopTIme = 10;
+         $loopTIme = 1;
          $currentSec= Carbon::now()->format('s');
          $domainName  = env('APP_URL');
 
@@ -52,10 +49,13 @@ class ShortnerUrlController extends Controller
          $input['visiteParMin'] = $request->visiteParMin;
          $input['ipBlockTime'] = $request->ipBlockTime;
          // unique 6 digites code genterate by checking DB
+         $randomCode = $currentSec.str_random(4);
+         $checkUniqueCode = ShortnerUrl::where('code',$randomCode)->first();
+
          while($loopTIme >= 0){
              $randomCode = $currentSec.str_random(4);
              $checkUniqueCode = ShortnerUrl::where('code',$randomCode)->first();
-             if(is_null($checkUniqueCode)){
+             if(empty($checkUniqueCode)){
                  break;
              }
          }
@@ -68,18 +68,13 @@ class ShortnerUrlController extends Controller
                  'status' => 'success',
              ],Response::HTTP_CREATED);
          }
-
-        //  return $input;
-
-
-        //  return ( $request->all());
     }
 
 
-    public function show($id,$userid){
+    public function show($id, $userid){
         $this->onlyAuthCreatorShowCheck($userid);
 
-        $singleUrl = ShortnerUrl::where('id',$id)->where('userid',$userid)->first();
+        $singleUrl = ShortnerUrl::where('id', $id)->where('userid', $userid)->first();
         // return $singleUrl;
         if(!is_null($singleUrl)){
             return response()->json([
@@ -91,7 +86,7 @@ class ShortnerUrlController extends Controller
 
 
 
-    public function update(Request $request,$id,$userid){
+    public function update(Request $request, $id, $userid){
 
         $this->OnlyAuthCreatorCanUpdateCheck($userid);
 

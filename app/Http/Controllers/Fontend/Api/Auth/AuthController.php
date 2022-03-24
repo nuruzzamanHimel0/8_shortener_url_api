@@ -96,10 +96,6 @@ class AuthController extends Controller
             ]);
         }
 
-        // return response()->json([
-        //     $siteSetting, $user
-        // ]);
-
     }
 
     public function accessToken(Request $request){
