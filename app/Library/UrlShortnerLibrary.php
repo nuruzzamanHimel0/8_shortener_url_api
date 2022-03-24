@@ -18,6 +18,7 @@ class UrlShortnerLibrary{
                 $getCache = Cache::get($code.$clientIp);
                 //check ip block or not
                 if($getCache['status']){
+                    dump($getCache['status']);
                     //already blocked
                     $this->alreadyBlockedCheck($visiteTime,$code,$clientIp,$fetchUrl,$expireAt);
 
@@ -36,13 +37,16 @@ class UrlShortnerLibrary{
                             // ekhn o visite kore parbe
                             $getCache['count'] = $getCache['count'] + 1;
                             Cache::put($code.$clientIp,$getCache, $expireAt);
-                            dump(Cache::get($code.$clientIp));
+
+                            dd(Cache::get($code.$clientIp));
                             return redirect($fetchUrl->fulllink);
                         }
                     }else{
                         // url cache ase but hit time same na
                         Cache::forget($code.$clientIp);
                         $this->resetCache($code,$clientIp,$expireAt,$visiteTime);
+
+                        dd(Cache::get($code.$clientIp));
                         return redirect($fetchUrl->fulllink);
                     }
                 }
@@ -50,6 +54,8 @@ class UrlShortnerLibrary{
                 // new cache create
                 dump('new cache');
                 $this->resetCache($code,$clientIp,$expireAt,$visiteTime);
+
+                dd(Cache::get($code.$clientIp));
                 return redirect($fetchUrl->fulllink);
             }
         }else{
@@ -88,6 +94,8 @@ class UrlShortnerLibrary{
         }else{
             // you can visite again . reset a cache
             $this->resetCache($code,$clientIp,$expireAt,$visiteTime);
+
+            dd('status false then new catache create',Cache::get($code.$clientIp));
             return redirect($fetchUrl->fulllink);
         }
     }
