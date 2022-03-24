@@ -13,24 +13,14 @@ class UrlShortnerLibrary{
             $clientIp =  \Request::getClientIp(true);
             $visiteTime = Carbon::now()->timezone('Asia/Dhaka')->format('Y/m/d H:i');
             $expireAt = Carbon::now()->timezone('Asia/Dhaka')->addMinute(30);
-
              //already cache has
             if (Cache::has($code.$clientIp)) {
                 $getCache = Cache::get($code.$clientIp);
                 //check ip block or not
                 if($getCache['status']){
                     //already blocked
-                    $visiteTimeSTT = strtotime($visiteTime);
-                    $blockTimeSTT = strtotime($getCache['blockTime']);
-                    if($visiteTimeSTT <= $blockTimeSTT){
-                        //already blocked with some times
-                        dump(Cache::get($code.$clientIp));
-                        dump("already blocked");
-                    }else{
-                        // you can visite again . reset a cache
-                        $this->resetCache($code,$clientIp,$expireAt,$visiteTime);
-                        return redirect($fetchUrl->fulllink);
-                    }
+                    $this->alreadyBlockedCheck($visiteTime,$code,$clientIp,$fetchUrl,$expireAt);
+
                 }else{
                     // ekhn o block hoy nai, check korbe hit ta ek i time y eseci kina
                     $recordTimeSTT = strtotime($getCache['recordTime']);
@@ -38,14 +28,15 @@ class UrlShortnerLibrary{
                     if($recordTimeSTT == $visiteTimeSTT){
                         // cache ase and hit time same
                         if((int)$getCache['count'] === (int)$fetchUrl->visiteParMin ){
+                            dump('count equal');
                             //r visite korte parbe na, block time set kora hbe
                             $this->isBlockedUrl($getCache,$code,$clientIp,$expireAt,$fetchUrl);
-                            //exception throw
-                            dd('visite time is overe');
                         }else{
+                            dump('count increment');
                             // ekhn o visite kore parbe
                             $getCache['count'] = $getCache['count'] + 1;
                             Cache::put($code.$clientIp,$getCache, $expireAt);
+                            dump(Cache::get($code.$clientIp));
                             return redirect($fetchUrl->fulllink);
                         }
                     }else{
@@ -57,6 +48,7 @@ class UrlShortnerLibrary{
                 }
             }else{
                 // new cache create
+                dump('new cache');
                 $this->resetCache($code,$clientIp,$expireAt,$visiteTime);
                 return redirect($fetchUrl->fulllink);
             }
@@ -81,5 +73,22 @@ class UrlShortnerLibrary{
         $getCache['status'] = true;
         $getCache['blockTime'] = $blockTime;
         Cache::put($code.$clientIp,$getCache, $expireAt);
+         //exception throw
+         dump('visite time is overe');
+    }
+
+    public function alreadyBlockedCheck($visiteTime,$code,$clientIp,$fetchUrl,$expireAt){
+        $getCache = Cache::get($code.$clientIp);
+        $visiteTimeSTT = strtotime($visiteTime);
+        $blockTimeSTT = strtotime($getCache['blockTime']);
+        if($visiteTimeSTT <= $blockTimeSTT){
+            //already blocked with some times
+            dump(Cache::get($code.$clientIp));
+            dump("already blocked");
+        }else{
+            // you can visite again . reset a cache
+            $this->resetCache($code,$clientIp,$expireAt,$visiteTime);
+            return redirect($fetchUrl->fulllink);
+        }
     }
 }
