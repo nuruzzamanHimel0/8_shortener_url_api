@@ -1,0 +1,7 @@
+########## usr panel #######
+user: n.himel143@gmail.com
+pass: 123456789
+
+######### admin panel ######
+user: nuruzzaman.himel147@gmail.com
+pass: 123456789

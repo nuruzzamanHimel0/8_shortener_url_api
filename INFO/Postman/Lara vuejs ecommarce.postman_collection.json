@@ -1,0 +1,481 @@
+{
+	"id": "90e1375d-8983-562b-2a47-2d081d85315a",
+	"name": "Lara vuejs ecommarce",
+	"description": "",
+	"order": [
+		"86db5749-ac63-bb94-cf9c-5dbe4dd734f1"
+	],
+	"folders": [
+		{
+			"name": "Admin",
+			"description": "",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"order": [
+				"9814538d-526f-999b-a5d7-80fca308ba42",
+				"34dc7f62-9398-6578-ba96-49ddb92eb935"
+			],
+			"owner": 0,
+			"folder": "9c7b7155-ce6d-5a22-a6ad-b10f2c8ea5fd",
+			"folders_order": [],
+			"id": "fcd8974a-0e1a-54f6-757c-c1ffcacc0c89"
+		},
+		{
+			"name": "Category",
+			"description": "",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"order": [
+				"02a20e0e-0588-1577-2e03-3006727b3894",
+				"3ddf04b1-8ae2-a8e3-ca51-aa98d13c5022"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "2b2479a2-3366-47ad-6f36-44baf3d6af4c"
+		},
+		{
+			"name": "Category",
+			"description": "",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"order": [
+				"ccc4f1a5-bf98-df13-6c81-616ef4d98813",
+				"48ee34b4-eb9a-d4d4-f052-81fbbaa436ac"
+			],
+			"owner": 0,
+			"folder": "ada94764-e7a2-8725-3ef6-e38d24197b75",
+			"folders_order": [],
+			"id": "ee8da2b3-119d-bcea-7156-7b88f2c177e4"
+		},
+		{
+			"name": "Fontend",
+			"description": "",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"order": [],
+			"owner": 0,
+			"folders_order": [
+				"ee8da2b3-119d-bcea-7156-7b88f2c177e4",
+				"e535981e-d978-e7e4-d5c0-ddb5bbb00844"
+			],
+			"id": "ada94764-e7a2-8725-3ef6-e38d24197b75"
+		},
+		{
+			"name": "LOGIN",
+			"description": "",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"order": [],
+			"owner": 0,
+			"folders_order": [
+				"fcd8974a-0e1a-54f6-757c-c1ffcacc0c89"
+			],
+			"id": "9c7b7155-ce6d-5a22-a6ad-b10f2c8ea5fd"
+		},
+		{
+			"name": "Products",
+			"description": "",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"order": [
+				"07d30d6f-0db2-f120-f6e0-9803d0cf44a3",
+				"29eacb07-3959-3dd2-6d06-2cf050af3a4a"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "6e56d3ea-91b7-585a-697c-f6c9360bb7e2"
+		},
+		{
+			"name": "oauth",
+			"description": "",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"order": [
+				"4c57f902-cfff-7766-5b25-7b23cfdf5d77",
+				"aae91f29-5e7f-ec91-d04b-9fe3f20228ef"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "8e37c089-63ca-fd85-6fc3-cc8fb31724f4"
+		},
+		{
+			"name": "oauth",
+			"description": "",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"order": [
+				"45c359da-5bb8-c43f-ad64-6857a0ffc576"
+			],
+			"owner": 0,
+			"folder": "ada94764-e7a2-8725-3ef6-e38d24197b75",
+			"folders_order": [],
+			"id": "e535981e-d978-e7e4-d5c0-ddb5bbb00844"
+		}
+	],
+	"folders_order": [
+		"8e37c089-63ca-fd85-6fc3-cc8fb31724f4",
+		"9c7b7155-ce6d-5a22-a6ad-b10f2c8ea5fd",
+		"2b2479a2-3366-47ad-6f36-44baf3d6af4c",
+		"6e56d3ea-91b7-585a-697c-f6c9360bb7e2",
+		"ada94764-e7a2-8725-3ef6-e38d24197b75"
+	],
+	"timestamp": 1640621334757,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "02a20e0e-0588-1577-2e03-3006727b3894",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost/4.lara_ecom_vue_api/public/api/admin/product  ",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Category Store",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1641138160326,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "2b2479a2-3366-47ad-6f36-44baf3d6af4c",
+			"rawModeData": "{\n\t\"name\":\"CARR\",\n\t\"categoryImage\": \"image.jpg\"\n}"
+		},
+		{
+			"id": "07d30d6f-0db2-f120-f6e0-9803d0cf44a3",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost/4.lara_ecom_vue_api/public/api/brand-wise-product/4",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"data": null,
+			"dataMode": "params",
+			"name": "brand wise products",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1642525729469,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "6e56d3ea-91b7-585a-697c-f6c9360bb7e2"
+		},
+		{
+			"id": "29eacb07-3959-3dd2-6d06-2cf050af3a4a",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost/4.lara_ecom_vue_api/public/api/brnadsProducts/4",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"data": null,
+			"dataMode": "params",
+			"name": "brands Products",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1642527450298,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "6e56d3ea-91b7-585a-697c-f6c9360bb7e2"
+		},
+		{
+			"id": "34dc7f62-9398-6578-ba96-49ddb92eb935",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost/4.lara_ecom_vue_api/public/api/admin/access-token ",
+			"folder": "fcd8974a-0e1a-54f6-757c-c1ffcacc0c89",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1641052769287,
+			"name": "admin access token",
+			"description": "",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"responses": [],
+			"rawModeData": "{\n\t\"accessToken\" : \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY3OTRkOTJiNWNhZTk4Njg2OTU3NTZiZmRiZDE5MmQwZDNkNTEyYzc5MDIxZmFlZjNiODI2NTUzYjk1ZTk0NDg0NzkzYmM5MTYyZDFmOTc2In0.eyJhdWQiOiIyIiwianRpIjoiZjc5NGQ5MmI1Y2FlOTg2ODY5NTc1NmJmZGJkMTkyZDBkM2Q1MTJjNzkwMjFmYWVmM2I4MjY1NTNiOTVlOTQ0ODQ3OTNiYzkxNjJkMWY5NzYiLCJpYXQiOjE2NDA5NTQ0MDksIm5iZiI6MTY0MDk1NDQwOSwiZXhwIjoxNjcyNDkwNDA5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.La3bbk57Uu2-Rk71ezp1ywg3dBu5aftDOuaSfv5aiku023ZNXC1UzrNfH06JqqvxZnPBVC_b339kh2tnFOLQOKlFL8CnW_9k__VPcmQ0byPVNYgwm2SR2uhf1ypnK-8x2hahLsm6c6SiWGcPTVrM1Y22mJ7gGyRkZDWZzqm1i8r3H9Lew4EDDs1-PABu60668rTdYc5LpmVbaLz15Q74jsiwAoPwp2UbmM6Mz2m8hw31OJRfLsEbYWjjGldO8KOtMfJ_K-msDPbwtOd3i3f3prdbHNCEPBN__SYgV_K21XOmMcVA57op0WqtNu6uxAoHzEmc1U8BqdYvkZH72fanCi898wbjl-cJYeU6jcAAzfyqzqkCp7H3fiOb8tOs0hvifTHbnP17lIgU73jA4lqPd0CmWJxh8aIw_j477aPrnqXETFev1K8yHgNu5cOl3__yIahQhGT7n48G1IqouJgDCwig9FLYadmFmfO2OvE-WC8NbyBrgOWjhLrsnJeoSq5v99YfVtg9Z1Cvjd5Z8OVnhsZVsM49G7-__zL8aEEtKH_x3EPGJrzyiwVOZpPe9TLGHEcjaN-Yj2x5M-EciX94QjV9Qo2A0kZ7IC7pi3l-fsnhphhSFfG5YFhlzWINbkSHR_jsTfIPwUoiLKJKS1DgmZoXA84TYlBjmUVovx5J2bg\"\n}"
+		},
+		{
+			"id": "3ddf04b1-8ae2-a8e3-ca51-aa98d13c5022",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost/4.lara_ecom_vue_api/public/api/admin/category",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"data": null,
+			"dataMode": "params",
+			"name": "All Category",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1641139672013,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "2b2479a2-3366-47ad-6f36-44baf3d6af4c"
+		},
+		{
+			"id": "45c359da-5bb8-c43f-ad64-6857a0ffc576",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost/4.lara_ecom_vue_api/public/api/access-token",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"data": [],
+			"dataMode": "raw",
+			"name": "access_token",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1642772980592,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "e535981e-d978-e7e4-d5c0-ddb5bbb00844",
+			"rawModeData": "{\n\t\"accessToken\" : \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijk4ODAyZGEzNzZmMGUxZGE2MWI1M2M0YzUyODZlMWRjYmI2M2U4OTQ0YjdjMjU0OTczNmU2NmNlYmNmZGM4OWMyYzIxNzYzZTQ4YzQyZmNkIn0.eyJhdWQiOiIyIiwianRpIjoiOTg4MDJkYTM3NmYwZTFkYTYxYjUzYzRjNTI4NmUxZGNiYjYzZTg5NDRiN2MyNTQ5NzM2ZTY2Y2ViY2ZkYzg5YzJjMjE3NjNlNDhjNDJmY2QiLCJpYXQiOjE2NDI3MjUzOTMsIm5iZiI6MTY0MjcyNTM5MywiZXhwIjoxNjc0MjYxMzkzLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.knQ8PDBhJFtUArYBAEPAG9Ql7GGPhIOyARckduneIWyWfOE0d7LUtkLfHuop30KstPhDhnvirT-Ug5yd8usXUkA0tT-MHsEED40Ciljy2eAksnB6gY9T8bsZ1_zAAOBGnRc4lPgh_tMZ5UaDoWZb6p_USGHR8GP6Fm1qy77sIWkCMJR28otssyReDSX0rE8pzAfeFi0aG8_caQwZp-wkXxiltwhWjHX6HVxeVlShnAUb6t1vOXaracEBAztlmvVK25P8231ArULe-H0Tq2LM1Wmm7gC4gY5Ms6GkJEIHIFbIqz3hxF1OTGNVX-MpQSftvU1Waw8Wg0GqKGsk6Mr0dO8M5BeDJK4kZbCw5Es58g6cuwH_yTfeJsVHeBmGY8YQ57KlUrtVwxIcz8U3NCmoQq4Yu3MBomZCnSpj1tiys_-egfW61HHkj43qUgP-zCzeYBK-4dRFQYj0a0G2Z2DSAa8V7SExFOmurrKeZd2c_HQ6sjweIDwlEGd4XjJfdtA8eN75KqHz-6NS2LngUeLfizF9f59wgdyMsrCM7hZxDkTm3ikqsTj6LzWV-J4VRPhKhaGN42rdIi1QKJtMvU4HS92-2fOhWgz6Rn7ilGO0GgRPfNP-RVsjBtU0zhy4ARFTOUrGZDbdsKuIIW1eDJwwBy5unW6qcckMkl6hUsmDF5k\"\n}"
+		},
+		{
+			"id": "48ee34b4-eb9a-d4d4-f052-81fbbaa436ac",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost/4.lara_ecom_vue_api/public/api/categoryProducts/12",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"data": null,
+			"dataMode": "params",
+			"name": "category wise products",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1642606796262,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "ee8da2b3-119d-bcea-7156-7b88f2c177e4"
+		},
+		{
+			"id": "4c57f902-cfff-7766-5b25-7b23cfdf5d77",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost/4.lara_ecom_vue_api/public/oauth/token",
+			"folder": "8e37c089-63ca-fd85-6fc3-cc8fb31724f4",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1641052784636,
+			"name": "oauth_token",
+			"description": "",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"responses": [],
+			"rawModeData": "{\n\t\"grant_type\" : \"password\",\n\t\"client_id\" : 2,\n\t\"client_secret\" : \"fVXNYS3d9oSEVqDH6O87NvyEANFgyFJnNAZ8rIR9\",\n\t\"username\" : \"nuruzzaman.himel147@gmail.com\",\n\t\"password\" : \"123456789\"\n}"
+		},
+		{
+			"id": "86db5749-ac63-bb94-cf9c-5dbe4dd734f1",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost/4.lara_ecom_vue_api/public/api/brand/4",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"data": null,
+			"dataMode": "params",
+			"name": "Brand First",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1642527404776,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "9814538d-526f-999b-a5d7-80fca308ba42",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost/4.lara_ecom_vue_api/public/api/admin/login",
+			"folder": "fcd8974a-0e1a-54f6-757c-c1ffcacc0c89",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1641052756772,
+			"name": "admin login",
+			"description": "",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"responses": [],
+			"rawModeData": "{\n\t\"email\":\"nuruzzaman.himel147@gmail.com\",\n\t\"password\":\"123456789\"\n}"
+		},
+		{
+			"id": "aae91f29-5e7f-ec91-d04b-9fe3f20228ef",
+			"headers": "Accept: application/json\nAuthorization: Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImIwNzc0ZmM4YjllZjAzZGVhYjQwZTgxMmI3ODg5ODZjOTYwNjk4OGZhZjVlMGNlYTk3MzE0YzYwMTZjOTBjYTE3MGFkNzA5Y2E5ZGU4MjAwIn0.eyJhdWQiOiIyIiwianRpIjoiYjA3NzRmYzhiOWVmMDNkZWFiNDBlODEyYjc4ODk4NmM5NjA2OTg4ZmFmNWUwY2VhOTczMTRjNjAxNmM5MGNhMTcwYWQ3MDljYTlkZTgyMDAiLCJpYXQiOjE2NDA2MjE2ODYsIm5iZiI6MTY0MDYyMTY4NiwiZXhwIjoxNjcyMTU3Njg2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.dVERUFPIzo2NwgytCO3_ZJRlGANpsl8YCd6JrwHwwwyMLQF_iorTTPRCe_zLnOS4C0wjo5wwrp-EYzpGZpBgNupAadfMY23RoWZcnkRf7Humkg_MdXIBnzjGaz9Q_zE6cHaEyDQj5mEkG_AkSCzRHtcoroyAFurKiV6qoSpLJJqVAbhhiyNnqvLMKL8rvXDLIvvohl3BErA3WaGXhdtJfs2d9869-dwbnHCB95w3BKB8AEtKlqLq-DT4IkckdTALdIceJzr3zUE4eQahw5ef5UNb5YcPhSEDZK9dKt8J6_2ERerPwKrJ7eFuUKKq0ajRGPvnaV9NxK0r90kbqY5orb4edXdo-tiNkHL8ri1m238icAwzlpbwJSasFbTkXekJHW7lxMj4e_40Puvq06rIGPcrmHoTAw5uO90NW9UbR6i-Cpi2rUYzdlgB3jbCrIfUHzrfNaSKRBl9Ck3-SUowCMO7b7jm-Pbm4y-fRs9Tu6FflgxbeyKfTEv6kiBBX7pVV3KchVlur-fX9LkJeFMm8W8h8vSGCzMH9E7F83hG9IND47hZW8NKPbuVrDHfWbqs2RCaLJe8Lj53MdjpBOYcZeKHkM6Xo5bdDHtyK9r3vjvwP1EawCz7f3ov0bJ876bjt2vD_qJEjz1yyl6x8E_a2vxia4dF3lccbdcXo6M0WgI\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImIwNzc0ZmM4YjllZjAzZGVhYjQwZTgxMmI3ODg5ODZjOTYwNjk4OGZhZjVlMGNlYTk3MzE0YzYwMTZjOTBjYTE3MGFkNzA5Y2E5ZGU4MjAwIn0.eyJhdWQiOiIyIiwianRpIjoiYjA3NzRmYzhiOWVmMDNkZWFiNDBlODEyYjc4ODk4NmM5NjA2OTg4ZmFmNWUwY2VhOTczMTRjNjAxNmM5MGNhMTcwYWQ3MDljYTlkZTgyMDAiLCJpYXQiOjE2NDA2MjE2ODYsIm5iZiI6MTY0MDYyMTY4NiwiZXhwIjoxNjcyMTU3Njg2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.dVERUFPIzo2NwgytCO3_ZJRlGANpsl8YCd6JrwHwwwyMLQF_iorTTPRCe_zLnOS4C0wjo5wwrp-EYzpGZpBgNupAadfMY23RoWZcnkRf7Humkg_MdXIBnzjGaz9Q_zE6cHaEyDQj5mEkG_AkSCzRHtcoroyAFurKiV6qoSpLJJqVAbhhiyNnqvLMKL8rvXDLIvvohl3BErA3WaGXhdtJfs2d9869-dwbnHCB95w3BKB8AEtKlqLq-DT4IkckdTALdIceJzr3zUE4eQahw5ef5UNb5YcPhSEDZK9dKt8J6_2ERerPwKrJ7eFuUKKq0ajRGPvnaV9NxK0r90kbqY5orb4edXdo-tiNkHL8ri1m238icAwzlpbwJSasFbTkXekJHW7lxMj4e_40Puvq06rIGPcrmHoTAw5uO90NW9UbR6i-Cpi2rUYzdlgB3jbCrIfUHzrfNaSKRBl9Ck3-SUowCMO7b7jm-Pbm4y-fRs9Tu6FflgxbeyKfTEv6kiBBX7pVV3KchVlur-fX9LkJeFMm8W8h8vSGCzMH9E7F83hG9IND47hZW8NKPbuVrDHfWbqs2RCaLJe8Lj53MdjpBOYcZeKHkM6Xo5bdDHtyK9r3vjvwP1EawCz7f3ov0bJ876bjt2vD_qJEjz1yyl6x8E_a2vxia4dF3lccbdcXo6M0WgI",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost/4.lara_ecom_vue_api/public/api/user",
+			"folder": "8e37c089-63ca-fd85-6fc3-cc8fb31724f4",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1641052793901,
+			"name": "oauth_token_api_user",
+			"description": "",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"responses": []
+		},
+		{
+			"id": "ccc4f1a5-bf98-df13-6c81-616ef4d98813",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost/4.lara_ecom_vue_api/public/api/category/12",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "90e1375d-8983-562b-2a47-2d081d85315a",
+			"data": null,
+			"dataMode": "params",
+			"name": "get category by catid",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1642606108306,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "ee8da2b3-119d-bcea-7156-7b88f2c177e4"
+		}
+	]
+}
