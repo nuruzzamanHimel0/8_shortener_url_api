@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Image;
 use GuzzleHttp\Client;
+use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
@@ -53,7 +54,7 @@ class AuthController extends Controller
             if(isset($createuser)){
                 return response()->json([
                     'status' => 'success'
-                ]);
+                ],Response::HTTP_CREATED);
             }
         }
 
@@ -81,12 +82,12 @@ class AuthController extends Controller
                         'status' => "success",
                         'token' => $token,
                         'userid' => $user->id
-                    ],200);
+                    ],Response::HTTP_OK);
 
             }
             else {
                 $response = ["message" => "Password mismatch"];
-                return response($response, 422);
+                return response($response, Response::HTTP_UNPROCESSABLE_ENTITY);
             }
         }else{
             return response()->json([
@@ -114,7 +115,7 @@ class AuthController extends Controller
         return response()->json([
             'status' => "success",
             'data' => json_decode((string) $response->getBody(), true)
-        ]);
+        ],Response::HTTP_OK);
     }
 
     public function logout(Request $request){
@@ -124,7 +125,7 @@ class AuthController extends Controller
                 'status' => 'success',
                 'message' => 'You have been successfully logged out!'
             ];
-            return response()->json($response,200);
+            return response()->json($response,Response::HTTP_OK);
         }
     }
 

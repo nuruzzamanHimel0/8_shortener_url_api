@@ -9,6 +9,7 @@ use App\Http\Resources\ShortnerUrlResource;
 use App\Models\ShortnerUrl;
 use App\Models\User;
 use Carbon\Carbon;
+use Symfony\Component\HttpFoundation\Response;
 
 class ShortnerUrlController extends Controller
 {
@@ -21,7 +22,7 @@ class ShortnerUrlController extends Controller
             return response()->json([
                 'status' => 'success',
                 'getUrl' => ShortnerUrlCollection::collection( $getUrl )
-            ],200);
+            ],Response::HTTP_OK);
         }
         // return  ShortnerUrlCollection::collection( $getUrl );
     }
@@ -60,7 +61,7 @@ class ShortnerUrlController extends Controller
          if(isset($shortUrlCreate)){
              return response()->json([
                  'status' => 'success',
-             ],200);
+             ],Response::HTTP_CREATED);
          }
 
         //  return $input;
@@ -76,7 +77,7 @@ class ShortnerUrlController extends Controller
             return response()->json([
                 'status' => 'success',
                 'singleUrl' => new ShortnerUrlResource($singleUrl)
-            ]);
+            ],Response::HTTP_OK);
         }
     }
 
@@ -98,7 +99,7 @@ class ShortnerUrlController extends Controller
         if(isset($updateUrl)){
             return response()->json([
                 'status' => 'success',
-            ],200);
+            ],Response::HTTP_CREATED);
         }
         // return $updateUrl;
     }
@@ -109,7 +110,7 @@ class ShortnerUrlController extends Controller
         if(isset($deleteUrl)){
             return response()->json([
                 'status' => 'success',
-            ],200);
+            ],Response::HTTP_OK);
         }
     }
 }
