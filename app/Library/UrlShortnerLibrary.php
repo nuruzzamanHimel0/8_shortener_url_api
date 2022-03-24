@@ -1,5 +1,8 @@
 <?php
 namespace App\Library;
+
+use App\Exceptions\InvalideUrlException;
+use App\Exceptions\IpBlockExceptionWithTime;
 use App\Models\ShortnerUrl;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -7,20 +10,20 @@ use Cache;
 
 
 class UrlShortnerLibrary{
+
     public function shortenLink($code){
         $fetchUrl = ShortnerUrl::where('code',$code)->first();
         if(!is_null($fetchUrl)){
             $clientIp =  \Request::getClientIp(true);
-            $visiteTime = Carbon::now()->timezone('Asia/Dhaka')->format('Y/m/d H:i');
-            $expireAt = Carbon::now()->timezone('Asia/Dhaka')->addMinute(30);
+            $visiteTime = $this->currentTime();
+            $expireAt = $this->expireInMin(30);
              //already cache has
             if (Cache::has($code.$clientIp)) {
                 $getCache = Cache::get($code.$clientIp);
                 //check ip block or not
                 if($getCache['status']){
-                    dump($getCache['status']);
                     //already blocked
-                    $this->alreadyBlockedCheck($visiteTime,$code,$clientIp,$fetchUrl,$expireAt);
+                   return $this->alreadyBlockedCheck($visiteTime,$code,$clientIp,$fetchUrl,$expireAt);
 
                 }else{
                     // ekhn o block hoy nai, check korbe hit ta ek i time y eseci kina
@@ -29,37 +32,29 @@ class UrlShortnerLibrary{
                     if($recordTimeSTT == $visiteTimeSTT){
                         // cache ase and hit time same
                         if((int)$getCache['count'] === (int)$fetchUrl->visiteParMin ){
-                            dump('count equal');
                             //r visite korte parbe na, block time set kora hbe
                             $this->isBlockedUrl($getCache,$code,$clientIp,$expireAt,$fetchUrl);
                         }else{
-                            dump('count increment');
                             // ekhn o visite kore parbe
                             $getCache['count'] = $getCache['count'] + 1;
                             Cache::put($code.$clientIp,$getCache, $expireAt);
-
-                            dd(Cache::get($code.$clientIp));
                             return redirect($fetchUrl->fulllink);
                         }
                     }else{
                         // url cache ase but hit time same na
                         Cache::forget($code.$clientIp);
                         $this->resetCache($code,$clientIp,$expireAt,$visiteTime);
-
-                        dd(Cache::get($code.$clientIp));
                         return redirect($fetchUrl->fulllink);
                     }
                 }
             }else{
                 // new cache create
-                dump('new cache');
                 $this->resetCache($code,$clientIp,$expireAt,$visiteTime);
-
-                dd(Cache::get($code.$clientIp));
                 return redirect($fetchUrl->fulllink);
             }
         }else{
-            dd('Invalide URL');
+            //invalide url
+            throw new InvalideUrlException();
         }
     }
 
@@ -79,24 +74,44 @@ class UrlShortnerLibrary{
         $getCache['status'] = true;
         $getCache['blockTime'] = $blockTime;
         Cache::put($code.$clientIp,$getCache, $expireAt);
-         //exception throw
-         dump('visite time is overe');
+
+        $durationInMin = $this->ipUnblockTImes($code,$clientIp);
+        if($durationInMin >= 0){
+            throw new IpBlockExceptionWithTime($durationInMin);
+        }
     }
 
     public function alreadyBlockedCheck($visiteTime,$code,$clientIp,$fetchUrl,$expireAt){
         $getCache = Cache::get($code.$clientIp);
         $visiteTimeSTT = strtotime($visiteTime);
         $blockTimeSTT = strtotime($getCache['blockTime']);
-        if($visiteTimeSTT <= $blockTimeSTT){
+        // dump($visiteTimeSTT < $blockTimeSTT);
+        if($visiteTimeSTT < $blockTimeSTT){
             //already blocked with some times
-            dump(Cache::get($code.$clientIp));
-            dump("already blocked");
+            $durationInMin = $this->ipUnblockTImes($code,$clientIp);
+            if($durationInMin >= 0){
+                throw new IpBlockExceptionWithTime($durationInMin);
+            }
         }else{
             // you can visite again . reset a cache
             $this->resetCache($code,$clientIp,$expireAt,$visiteTime);
-
-            dd('status false then new catache create',Cache::get($code.$clientIp));
             return redirect($fetchUrl->fulllink);
         }
+    }
+
+    public function currentTime(){
+        return Carbon::now()->timezone('Asia/Dhaka')->format('Y/m/d H:i');
+    }
+    public function expireInMin($min){
+        return Carbon::now()->timezone('Asia/Dhaka')->addMinute($min);
+    }
+
+    public function ipUnblockTImes($code,$clientIp){
+        $getCache = Cache::get($code.$clientIp);
+        $visiteTime = $this->currentTime();
+        $blockTime = $getCache['blockTime'];
+        $diff = strtotime($blockTime) - strtotime($visiteTime);
+        $durationInMin = $diff / 60; // 60 min
+        return $durationInMin;
     }
 }

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Fontend\Api;
 
+use App\Exceptions\NotAuthontiCreateUser;
+use App\Exceptions\OnlyAuthCreatorCanDelete;
+use App\Exceptions\OnlyAuthCreatorCanUpdate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ShortnerUrlCollection;
@@ -10,6 +13,7 @@ use App\Models\ShortnerUrl;
 use App\Models\User;
 use Carbon\Carbon;
 use Symfony\Component\HttpFoundation\Response;
+use Auth;
 
 class ShortnerUrlController extends Controller
 {
@@ -28,6 +32,7 @@ class ShortnerUrlController extends Controller
     }
 
     public function store(Request $request){
+
 
         // return $request->all();
 
@@ -70,7 +75,10 @@ class ShortnerUrlController extends Controller
         //  return ( $request->all());
     }
 
+
     public function show($id,$userid){
+        $this->onlyAuthCreatorShowCheck($userid);
+
         $singleUrl = ShortnerUrl::where('id',$id)->where('userid',$userid)->first();
         // return $singleUrl;
         if(!is_null($singleUrl)){
@@ -81,7 +89,11 @@ class ShortnerUrlController extends Controller
         }
     }
 
+
+
     public function update(Request $request,$id,$userid){
+
+        $this->OnlyAuthCreatorCanUpdateCheck($userid);
 
 
         $request->validate([
@@ -105,12 +117,30 @@ class ShortnerUrlController extends Controller
     }
 
     public function destroy($id,$userid){
+
+        $this->OnlyAuthCreatorCanDeleteCheck($userid);
         $deleteUrl = ShortnerUrl::where('id',$id)
         ->where('userid',$userid)->delete();
         if(isset($deleteUrl)){
             return response()->json([
                 'status' => 'success',
             ],Response::HTTP_OK);
+        }
+    }
+
+    public function onlyAuthCreatorShowCheck($userid){
+        if (Auth::user()->id != $userid){
+            throw new NotAuthontiCreateUser("Only authonticated creator can see the data");
+        }
+    }
+    public function OnlyAuthCreatorCanUpdateCheck($userid){
+        if (Auth::user()->id != $userid){
+            throw new OnlyAuthCreatorCanUpdate('Only authonticated creator can update the data');
+        }
+    }
+    public function OnlyAuthCreatorCanDeleteCheck($userid){
+        if (Auth::user()->id != $userid){
+            throw new OnlyAuthCreatorCanDelete("Only authonticated creator can Destroy the data");
         }
     }
 }
