@@ -4,21 +4,25 @@ namespace App\Http\Controllers\Fontend\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ShortnerUrlCollection;
 use App\Models\ShortnerUrl;
+use App\Models\User;
 use Carbon\Carbon;
 
 class ShortnerUrlController extends Controller
 {
 
-    public function index(Request $request){
-        $getUrl = ShortnerUrl::where('userid',$request->userid)
+    public function index($userid){
+
+        $getUrl = ShortnerUrl::where('userid',$userid)
                 ->latest()->get();
         if(count($getUrl) > 0){
             return response()->json([
                 'status' => 'success',
-                'getUrl' => $getUrl
-            ]);
+                'getUrl' => ShortnerUrlCollection::collection( $getUrl )
+            ],200);
         }
+        // return  ShortnerUrlCollection::collection( $getUrl );
     }
 
     public function store(Request $request){

@@ -41,7 +41,7 @@ Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
     //authonticate route must be seperated
 
     Route::post('/generate-shorten-link', 'ShortnerUrlController@store');
-    Route::post('/get-shorten-link', 'ShortnerUrlController@index');
+    Route::post('/get-link/{userid}', 'ShortnerUrlController@index');
     Route::post('/show-link/{id}', 'ShortnerUrlController@show');
     Route::put('/update-link/{id}/user/{userid}', 'ShortnerUrlController@update');
     Route::delete('/delete-link/{id}/user/{userid}', 'ShortnerUrlController@destroy');
