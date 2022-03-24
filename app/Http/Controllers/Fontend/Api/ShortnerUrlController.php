@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Fontend\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ShortnerUrlCollection;
+use App\Http\Resources\ShortnerUrlResource;
 use App\Models\ShortnerUrl;
 use App\Models\User;
 use Carbon\Carbon;
@@ -68,18 +69,19 @@ class ShortnerUrlController extends Controller
         //  return ( $request->all());
     }
 
-    public function show($id){
-        $singleUrl = ShortnerUrl::where('id',$id)->first();
+    public function show($id,$userid){
+        $singleUrl = ShortnerUrl::where('id',$id)->where('userid',$userid)->first();
         // return $singleUrl;
         if(!is_null($singleUrl)){
             return response()->json([
                 'status' => 'success',
-                'singleUrl' => $singleUrl
+                'singleUrl' => new ShortnerUrlResource($singleUrl)
             ]);
         }
     }
 
     public function update(Request $request,$id,$userid){
+
 
         $request->validate([
             'fulllink' => 'required|url',

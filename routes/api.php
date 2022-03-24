@@ -20,12 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 });
 
+Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
 
-
-
-// Route::get('store', 'Fontend\Api\ShortnerUrlController@store');
-
-
+});
 
 Route::resource('photos', 'TestCOntroller');
 
@@ -42,7 +39,7 @@ Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
 
     Route::post('/generate-shorten-link', 'ShortnerUrlController@store');
     Route::post('/get-link/{userid}', 'ShortnerUrlController@index');
-    Route::post('/show-link/{id}', 'ShortnerUrlController@show');
+    Route::post('/show-link/{id}/user/{userid}', 'ShortnerUrlController@show');
     Route::put('/update-link/{id}/user/{userid}', 'ShortnerUrlController@update');
     Route::delete('/delete-link/{id}/user/{userid}', 'ShortnerUrlController@destroy');
 
