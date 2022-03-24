@@ -20,20 +20,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 });
 
-Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
-
+Route::group(['prefix'=>'/','namespace'=>"Fontend\Api",'middleware'=>['auth:api','throttle:80,1']], function(){
+    Route::post('access-token', 'Auth\AuthController@accessToken');
 });
 
 Route::resource('photos', 'TestCOntroller');
 
-Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
+Route::group(['prefix'=>'/','namespace'=>"Fontend\Api",'middleware'=>['throttle:80,1']], function(){
 
     // ########### Shortner URL ##############
 
     //auth
     Route::post('registration', 'Auth\AuthController@registration');
     Route::post('login', 'Auth\AuthController@login');
-    Route::post('access-token', 'Auth\AuthController@accessToken');
+
 
     //authonticate route must be seperated
 
