@@ -13,7 +13,7 @@ Route::group(['prefix'=>'/','namespace'=>"Fontend\Api",'middleware'=>['auth:api'
     Route::post('/get-link/{userid}', 'ShortnerUrlController@index');
     Route::post('/generate-shorten-link', 'ShortnerUrlController@store');
     Route::put('/update-link/{id}/user/{userid}', 'ShortnerUrlController@update');
-    Route::post('/show-link/{id}/user/{userid}', 'ShortnerUrlController@show');
+    Route::post('/view-link', 'ShortnerUrlController@show');
     Route::delete('/delete-link/{id}/user/{userid}', 'ShortnerUrlController@destroy');
     //logout
     Route::post('logout', 'Auth\AuthController@logout');

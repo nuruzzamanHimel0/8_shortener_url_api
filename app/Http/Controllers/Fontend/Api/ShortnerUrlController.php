@@ -71,10 +71,11 @@ class ShortnerUrlController extends Controller
     }
 
 
-    public function show($id, $userid){
-        $this->onlyAuthCreatorShowCheck($userid);
+    public function show(Request $request){
+        $this->onlyAuthCreatorShowCheck($request->userid);
 
-        $singleUrl = ShortnerUrl::where('id', $id)->where('userid', $userid)->first();
+        $singleUrl = ShortnerUrl::where('id', $request->id)
+        ->where('userid', $request->userid)->first();
         // return $singleUrl;
         if(!is_null($singleUrl)){
             return response()->json([
@@ -90,14 +91,13 @@ class ShortnerUrlController extends Controller
 
         $this->OnlyAuthCreatorCanUpdateCheck($userid);
 
-
         $request->validate([
             'fulllink' => 'required|url',
             'visiteParMin' => 'required',
             'ipBlockTime' => 'required',
          ]);
 
-        $updateUrl = ShortnerUrl::where('id',$id)
+        $updateUrl = ShortnerUrl::where('id', $id)
         ->where('userid',$userid)->update([
             'fulllink' => $request->fulllink,
             'visiteParMin' => $request->visiteParMin,
@@ -114,8 +114,8 @@ class ShortnerUrlController extends Controller
     public function destroy($id,$userid){
 
         $this->OnlyAuthCreatorCanDeleteCheck($userid);
-        $deleteUrl = ShortnerUrl::where('id',$id)
-        ->where('userid',$userid)->delete();
+        $deleteUrl = ShortnerUrl::where('id', $id)
+        ->where('userid', $userid)->delete();
         if(isset($deleteUrl)){
             return response()->json([
                 'status' => 'success',
