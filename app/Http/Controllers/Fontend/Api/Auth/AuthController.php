@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Image;
 use GuzzleHttp\Client;
 use Symfony\Component\HttpFoundation\Response;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -122,6 +123,14 @@ class AuthController extends Controller
                 'message' => 'You have been successfully logged out!'
             ];
             return response()->json($response,Response::HTTP_OK);
+        }
+    }
+
+    public function checkValidAccessToken(){
+        if(!Auth::guard('api')->check()){
+            return response()->json(['status'=> 'error']);
+        }else{
+            return response()->json(['status'=> 'success']);
         }
     }
 

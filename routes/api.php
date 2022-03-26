@@ -17,7 +17,10 @@ Route::group(['prefix'=>'/','namespace'=>"Fontend\Api",'middleware'=>['auth:api'
     Route::delete('/delete-link/{id}/user/{userid}', 'ShortnerUrlController@destroy');
     //logout
     Route::post('logout', 'Auth\AuthController@logout');
+
 });
+
+Route::post('/check-valid-token', 'Fontend\Api\Auth\AuthController@checkValidAccessToken');
 
 Route::group(['prefix'=>'/','namespace'=>"Fontend\Api",'middleware'=>['throttle:80,1','json.response']], function(){
 
